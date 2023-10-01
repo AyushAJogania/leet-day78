@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+class Solution {
+public:
+    std::string reverseWords(std::string s) {
+        std::istringstream iss(s);  // Use stringstream to split the string by spaces
+        std::string word, result;
+        
+        while (iss >> word) {  // Read each word
+            reverse(word.begin(), word.end());  // Reverse the word
+            result += word + " ";  // Append the reversed word with a space
+        }
+        
+        // Remove the trailing space before returning the result
+        result.pop_back();
+        
+        return result;
+    }
+};
